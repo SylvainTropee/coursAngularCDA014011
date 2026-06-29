@@ -1,0 +1,12 @@
+<!--interpolation-->
+<h1>Hello {{ username }}</h1>
+
+<!--property binding-->
+<h1 [class]="color">Hello {{ username }}</h1>
+<!--<h1 class="{{color}}">Hello {{ username }}</h1>-->
+
+<!--two way binding-->
+<input type="text" [(ngModel)]="username">
+
+<!--event binding-->
+<button (click)="resetName()">Reset</button>
