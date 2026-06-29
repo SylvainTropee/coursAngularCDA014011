@@ -9,12 +9,37 @@
     [class]="{'blue' : user.length > 10, 'yellow' : user.length < 5}"
   >User : {{ user }}</h2>
   <h2
-   [class.blue]="user.length > 10" [class.yellow]="user.length < 5"
+    [class.blue]="user.length > 10" [class.yellow]="user.length < 5"
   >User : {{ user }}</h2>
 }
 
-@for (u of users; track $index){
+@for (u of users; track $index) {
   <p (click)="removeUser($index)">{{ u }}</p>
 } @empty {
   <p>Pas de users !</p>
 }
+
+<div> {{ user.toUpperCase() }}</div>
+<div> {{ user | uppercase }}</div>
+<div>{{ date }}</div>
+<div>{{ date | date : 'dd/MM/yyyy' }}</div>
+<div>{{ date | date : 'longDate' }}</div>
+<div>{{ date | date : 'longDate' : undefined : 'fr_FR' }}</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
