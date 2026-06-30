@@ -1,0 +1,11 @@
+<h2>Home ! </h2>
+
+<div routerLink="/" routerLinkActive="active">Home</div>
+
+<div routerLink="/about">Go to About 1!</div>
+<div [routerLink]="about">Go to About 2!</div>
+
+<div (click)="goToAbout()">Go To about 3!</div>
+
+
+<button routerLink="/detail/123">Go to detail</button>
