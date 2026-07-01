@@ -9,10 +9,13 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class Mod5detail {
 
+  public error : boolean
+
   constructor(private route : ActivatedRoute) {
     // const id = this.route.snapshot.params['id'];
     const id = this.route.snapshot.paramMap.get('id');
     const message = this.route.snapshot.queryParamMap.get('message');
+    this.error = !!this.route.snapshot.queryParamMap.get('error');
     console.log(message);
     console.log(id);
   }
