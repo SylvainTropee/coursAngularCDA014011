@@ -1,32 +1,75 @@
-<form>
+<form [formGroup]="form" (submit)="onSubmit()">
 
   <label for="email">Email</label>
-  <input type="email" id="email" name="email">
+  <input type="email" id="email" name="email" formControlName="email">
+  @if (form.get('email')?.touched || form.get('email')?.dirty) {
+    @if (form.get('email')?.hasError('email')) {
+      <p class="error">Le champ n'est pas valide !</p>
+    }
+    @if (form.get('email')?.hasError('required')) {
+      <p class="error">Le champ est requis !</p>
+    }
+  }
+
 
   <label for="password">Mot de passe</label>
-  <input type="password" name="password" id="password">
+  <input type="password" name="password" id="password" formControlName="password">
+  @if (form.get('password')?.touched || form.get('email')?.dirty) {
+    @if (form.get('password')?.hasError('pattern')) {
+      <p class="error">Mot de passe de noob !</p>
+    }
+    @if (form.get('password')?.hasError('required')) {
+      <p class="error">Le champ est requis !</p>
+    }
+  }
 
   <label for="date">Date</label>
-  <input type="date" name="date" id="date">
+  <input type="date" name="date" id="date" formControlName="date">
+  @if (form.get('date')?.touched || form.get('email')?.dirty) {
+    @if (form.get('date')?.hasError('required')) {
+      <p class="error">Le champ est requis !</p>
+    }
+    @if (form.get('date')?.hasError('greaterThan')) {
+      <p class="error">La date doit être inférieure à la date du jour !</p>
+    }
+  }
 
 
   <label for="newsLetter">
-    <input type="checkbox" name="newsLetter" id="newsLetter">
+    <input type="checkbox" name="newsLetter" id="newsLetter" formControlName="newsLetter">
     S'abonner à la newsletter ?
   </label>
 
   <label for="city">Ville</label>
-  <select name="city" id="city">
+  <select name="city" id="city" formControlName="city">
     <option value="cdb">Chartres de Bretagne</option>
     <option value="quimper">Quimper</option>
     <option value="nantes">Nantes</option>
   </select>
+  @if (form.get('city')?.touched || form.get('city')?.dirty) {
+    @if (form.get('city')?.hasError('pattern')) {
+      <p class="error">Ceci n'est pas une ville autorisée !</p>
+    }
+  }
 
 
   <label for="note">Note de la promotion</label>
-  <input type="range" max="10" min="0" step="1" name="note" id="note">
-
+  <input type="range" max="10" min="0" step="1" name="note" id="note" formControlName="note">
+  @if (form.get('note')?.touched || form.get('note')?.dirty) {
+    @if (form.get('note')?.hasError('min')) {
+      <p class="error">Minimum 0 !</p>
+    }
+    @if (form.get('note')?.hasError('max')) {
+      <p class="error">Max 10 !</p>
+    }
+  }
   <button type="submit">Envoyer</button>
-<!--  <input type="submit" value="Envoyer">-->
+  <!--  <input type="submit" value="Envoyer">-->
 
 </form>
+
+
+<!--template driven form-->
+<label for="name">Nom</label>
+<input type="text" [(ngModel)]="name" (input)="checkName($event)">
+
