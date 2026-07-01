@@ -4,10 +4,11 @@ import {Mod1demo1} from './mod1/mod1demo1/mod1demo1';
 import {Mod3demo1} from './mod3/mod3demo1/mod3demo1';
 import {Mod3demo2} from './mod3/mod3demo2/mod3demo2';
 import {Mod4demo1} from './mod4/mod4demo1/mod4demo1';
+import {Mod6demo1} from './mod6/mod6demo1/mod6demo1';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Mod1demo1, Mod3demo1, Mod3demo2, Mod4demo1],
+  imports: [RouterOutlet, Mod1demo1, Mod3demo1, Mod3demo2, Mod4demo1, Mod6demo1],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
