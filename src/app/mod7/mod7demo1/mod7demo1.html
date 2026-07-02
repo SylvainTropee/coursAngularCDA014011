@@ -1,0 +1,14 @@
+<p>Harry 1</p>
+@if(harry){
+  <p>{{harry.name}}</p>
+  <img [src]="harry.image" [alt]="harry.name">
+}
+
+
+<p>Harry 2</p>
+@let harryObservable = (harry2 | async)[0];
+@if(harryObservable){
+  <p>{{harryObservable.name}}</p>
+  <img [src]="harryObservable.image" [alt]="harryObservable.name">
+}
+
